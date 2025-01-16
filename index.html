@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/scripts.js" defer></script>
+  <title>contact-form</title>
+</head>
+<body>
+  <main>
+    <section class="container">
+      <h1>Contact Us</h1>
+      <!-- Seção de formulário para cadastro de usuários -->
+      <form id="form">
+         <!-- Campo de entrada para o nome e email -->
+        <div class="input-group">
+          <label for="firstName">First Name<span class="required">*</span></label>
+          <input type="text" class="input" name="firstName" id="firstName" aria-describedby="firstNameError">
+          <span id="firstNameError" class="error-message">This field is required</span>
+        </div>
+        <div class="input-group">
+          <label for="lastName">Last Name<span class="required">*</span></label>
+          <input type="text" class="input" name="lastName" id="lastName" aria-describedby="lastNameError">
+          <span id="lastNameError" class="error-message">This field is required</span>
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address<span class="required">*</span></label>
+          <input type="email" class="input" name="email" id="email" aria-describedby="emailError">
+          <span id="emailError" class="error-message">Please enter a valid email address</span>
+        </div>
+        <!-- Seção de tipo de consulta(queryType) -->
+        <div class="input-group">
+          <label>Query Type<span class="required">*</span></label>
+          <div class="radio-group" id="queryTypeGroup">
+            <div class="type">
+              <input type="radio" class="input" name="queryType" id="generalEnquiry" value="generalEnquiry">
+              <label  for="generalEnquiry">General Enquiry</label>
+            </div>
+            <div class="type">
+              <input type="radio" name="queryType" id="supportRequest" value="supportRequest">
+              <label for="supportRequest">Support Request</label>
+            </div>
+          </div>
+          <span id="queryTypeError" class="error-message">Please select a query type</span>
+        </div>
+
+        <div class="input-group">
+          <label for="message">Message<span class="required">*</span></label>
+          <textarea name="message" class="input" id="message" aria-describedby="messageError"></textarea>
+          <span id="messageError" class="error-message">This field is required</span>
+        </div>
+        <div class="input-group">
+          <div class="group-consent">
+            <input type="checkbox" name="consent" class="input" id="consent" aria-describedby="consentError">
+            <label for="consent">I consent to being contacted by the team<span class="required">*</span></label>
+          </div>
+          <span id="consentError" class="error-message">To submit this form, please consent to being contacted</span>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Submit</button>
+        </div>
+      </form>
+    </section>
+    <section class="messageSent">
+      <div>
+        <img src="assets/images/icon-success-check.svg" alt="icon-success-check">
+      <h3>Message Sent!</h3>
+      </div>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </section>
+  </main>
+</body>
+</html>

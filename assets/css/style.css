@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*Colors-Primary*/
+    --Green-200-lighter: hsl(148, 38%, 91%);
+    --Green-600-medium: hsl(169, 82%, 27%);
+    --Red: hsl(0, 66%, 54%);
+
+    /*Colors-Neutral*/
+    --White: hsl(0, 0%, 100%);
+    --Grey-500-medium: hsl(186, 15%, 59%);
+    --Grey-900-darker: hsl(187, 24%, 22%);
+}
+/* estilo base (mobile first*/
+body {
+    font-family: "Karla", serif;
+    background-color: var(--White);
+    height: 100vh;
+    width: 100%;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    position: relative;
+    overflow-y: scroll; 
+    scroll-behavior: smooth;
+}
+h1 {
+    font-size: 27px;
+    margin-bottom: 24px;
+    color: var(--Grey-900-darker);
+    font-weight: 700;
+}
+.container {
+    padding: 24px;
+    max-width: 480px;
+    width: 100%;
+}
+.input-group {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+.input-group label {
+    color: #272727cc;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--Grey-500-medium);
+    border-radius: 5px;
+    margin-top: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.input-group input[type="text"],
+.input-group input[type="email"] {
+    cursor: pointer;
+}
+.input-group input[type="text"]:hover,
+.input-group input[type="email"]:hover {
+    border: 1px solid var(--Green-600-medium);
+}
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus {
+    border: 1px solid var(--Green-600-medium);
+}
+
+.input-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.radio-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.radio-group .type {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--Grey-500-medium);
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.radio-group .type label {
+    cursor: pointer;
+}
+.input-group .group-consent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+.input-group .group-consent label {
+    font-size: 14px;
+    cursor: pointer;
+}
+span.required {
+    color: var(--Green-600-medium);
+    margin-left: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 15px 0px;
+    background-color: var(--Green-600-medium);
+    border: none;
+    border-radius: 5px;
+    color: var(--White);
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+button:hover {
+    background-color: var(--Grey-900-darker);
+}
+/*estilo para mensagem de erro*/
+.error-message {
+    color: var(--Red);
+    font-size: 14px;  
+    margin-top: 8px;
+    display: none;
+}
+
+.input-group.error input,
+.input-group.error textarea {
+    border: 1px solid var(--Red);
+}
+
+.error-message.error {
+    display: block;
+}
+
+/*estilo do pop-up*/
+.messageSent {
+    background-color: var(--Grey-900-darker);
+    max-width: 260px;
+    color: var(--Green-200-lighter);
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 40px;
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.messageSent.show {
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna visível */
+}
+.messageSent div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+
+
+
+/*media query para telas maiores(tablet)*/
+@media screen and (min-width: 768px) {
+    main {
+        padding: 0;
+    }
+    .container {
+        max-width: 500px;
+    }
+    #form {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 16px;
+    }
+    #form .input-group:nth-child(3),
+    #form .input-group:nth-child(4),
+    #form .input-group:nth-child(5),
+    #form .input-group:nth-child(6),
+    .form-actions {
+        grid-column: 1 / -1;
+    }
+    #queryType {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .messageSent {
+        max-width: 420px;
+        padding: 20px 15px;
+        font-size: 15px;
+        top: 10px;
+    }
+    
+}
+/*media query para telas maiores(desktop)*/
+@media screen and (min-width: 1024px){
+    .container {
+        max-width: 700px;
+    }
+    
+}
